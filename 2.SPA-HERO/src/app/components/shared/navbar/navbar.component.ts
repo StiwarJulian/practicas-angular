@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
-@Component({
+import { Router } from '@angular/router';
+@Component( {
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html'
-})
+  templateUrl: './navbar.component.html',
+} )
 export class NavbarComponent implements OnInit {
+  constructor ( private _router: Router) { }
 
-  constructor() { }
+  ngOnInit (): void { }
 
-  ngOnInit(): void {
+  buscarHeroe ( termino: string ) {
+    this._router.navigate(['/busqueda', termino])
   }
-
 }
