@@ -1,0 +1,20 @@
+
+
+<div class="card-columns m-5 animated fadeIn">
+  <div class="card puntero" (click)="viewArtist(item)" *ngFor="let item of items">
+    <img [src]="item.images | noimage" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ item.name }}</h5>
+      <p class="card-text" *ngIf="item.artists; else elseBlock">
+        <span *ngFor="let artist of item.artists"
+          class="badge badge-primary">{{ artist.name }}
+        </span>
+
+      </p>
+      <ng-template #elseBlock >
+        <span class="badge badge-primary" *ngFor="let genre of item.genres">{{ genre }}
+        </span>
+      </ng-template>
+    </div>
+  </div>
+</div>
